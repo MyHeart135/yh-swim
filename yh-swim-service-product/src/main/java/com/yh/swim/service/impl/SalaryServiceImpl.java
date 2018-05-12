@@ -7,12 +7,17 @@ import com.yh.swim.dao.SalaryDao;
 import com.yh.swim.domain.condition.SalaryCondition;
 import com.yh.swim.domain.pojo.Salary;
 import com.yh.swim.service.SalaryService;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * SalaryService
+ *
+ * @author yanhuan1
+ */
 @Service
 public class SalaryServiceImpl implements SalaryService {
 
@@ -57,7 +62,7 @@ public class SalaryServiceImpl implements SalaryService {
 
     @Override
     public Integer batchInsert(List<Salary> salaryList) {
-        if(CollectionUtils.isNotEmpty(salaryList)){
+        if (CollectionUtils.isNotEmpty(salaryList)) {
             return salaryDao.batchInsert(salaryList);
         }
         return 0;
@@ -65,7 +70,7 @@ public class SalaryServiceImpl implements SalaryService {
 
     @Override
     public Integer batchDelete(List<Long> idList) {
-        if(CollectionUtils.isNotEmpty(idList)){
+        if (CollectionUtils.isNotEmpty(idList)) {
             return salaryDao.batchDelete(idList);
         }
         return 0;
@@ -73,7 +78,7 @@ public class SalaryServiceImpl implements SalaryService {
 
     @Override
     public Integer batchInsertOrUpdate(List<Salary> salaryList) {
-        if(CollectionUtils.isNotEmpty(salaryList)){
+        if (CollectionUtils.isNotEmpty(salaryList)) {
             return salaryDao.batchInsertOrUpdate(salaryList);
         }
         return 0;
