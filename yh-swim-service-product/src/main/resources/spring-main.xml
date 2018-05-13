@@ -21,5 +21,6 @@
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <import resource="classpath*:spring/spring-*.xml"/>
+    <import resource="classpath*:spring/dubbo-provider.xml"/>
 
 </beans>

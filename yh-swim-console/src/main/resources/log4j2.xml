@@ -26,7 +26,7 @@
         </RollingRandomAccessFile>
 
         <RollingRandomAccessFile name="yhswim" fileName="${log_home}/ob.log"
-                                 filePattern="${log_home}/basessm-%i.log.gz">
+                                 filePattern="${log_home}/yh-swim-%i.log.gz">
             <PatternLayout pattern="${patternLayout}"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="${business_log_size}"/>
@@ -45,11 +45,11 @@
         </AsyncLogger>
 
         <AsyncLogger name="com.yh.swim" level="${business_log_level}" additivity="true">
-            <AppenderRef ref="basessm"/>
+            <AppenderRef ref="yhswim"/>
         </AsyncLogger>
 
         <AsyncLogger name="launcher" level="INFO" additivity="true">
-            <AppenderRef ref="basessm"/>
+            <AppenderRef ref="yhswim"/>
         </AsyncLogger>
 
         <!-- 将调用mybatis的dao的包填入此处即可 -->
@@ -58,10 +58,10 @@
         </AsyncLogger>
 
         <!-- 配置记录器级别 -->
-        <!--<Root level="debug">-->
-            <!--&lt;!&ndash; 输出设置 &ndash;&gt;-->
-            <!--<AppenderRef ref="Console"/>-->
-        <!--</Root>-->
+        <Root level="debug">
+            <!-- 输出设置 -->
+            <AppenderRef ref="Console"/>
+        </Root>
     </Loggers>
 
 </Configuration>
