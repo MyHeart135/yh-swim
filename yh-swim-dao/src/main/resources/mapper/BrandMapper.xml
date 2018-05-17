@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.swim.dao.product.BrandDao">
+    <resultMap id="BaseResultMap" type="Brand">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="img_url" property="imgUrl" jdbcType="VARCHAR"/>
+        <result column="web_site" property="webSite" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="is_display" property="isDisplay" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="allColumnsWithOutId">
+        (name,description,img_url,web_site,sort,is_display)
+    </sql>
+
+    <sql id="allColumns">
+        id,name,description,img_url,web_site,sort,is_display
+    </sql>
+
+    <!-- 插入方法，插入后返回主键-->
+    <insert id="insert" parameterType="Brand" useGeneratedKeys="true" keyProperty="id">
+        insert into bbs_brand
+        <include refid="allColumnsWithOutId"/>
+        values (
+        #{name,jdbcType=VARCHAR},
+        #{description,jdbcType=VARCHAR},
+        #{imgUrl,jdbcType=VARCHAR},
+        #{webSite,jdbcType=VARCHAR},
+        #{sort,jdbcType=INTEGER},
+        1
+        )
+    </insert>
+
+    <select id="findBrandList" resultMap="BaseResultMap" parameterType="BrandCondition">
+        SELECT
+        <include refid="allColumns"/>
+        from bbs_brand
+        <where>
+            <if test="id != null and id != 0">
+                and id = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null and name != ''">
+                and name like "%"#{name,jdbcType=VARCHAR}"%"
+            </if>
+            <if test="isDisplay != null">
+                and is_display = #{isDisplay,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据id获取数据 -->
+    <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+        <include refid="allColumns"/>
+        from bbs_brand
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+</mapper>

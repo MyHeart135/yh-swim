@@ -24,6 +24,8 @@
     <typeAliases>
         <typeAlias alias="Salary" type="com.yh.swim.domain.pojo.Salary"/>
         <typeAlias alias="SalaryCondition" type="com.yh.swim.domain.condition.SalaryCondition"/>
+        <typeAlias alias="Brand" type="com.yh.swim.domain.pojo.product.Brand"/>
+        <typeAlias alias="BrandCondition" type="com.yh.swim.domain.condition.product.BrandCondition"/>
     </typeAliases>
 
     <plugins>
@@ -42,6 +44,7 @@
     <!-- mapper文件 -->
     <mappers>
         <mapper resource="mapper/SalaryMapper.xml"/>
+        <mapper resource="mapper/BrandMapper.xml"/>
     </mappers>
 
 </configuration>

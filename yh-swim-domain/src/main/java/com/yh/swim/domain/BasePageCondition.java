@@ -5,9 +5,15 @@ package com.yh.swim.domain;
  */
 public class BasePageCondition extends BaseBussinessDomain {
 
-    private int pageNum;
+    /**
+     * 当前页
+     */
+    private int pageNum = 1;
 
-    private int pageSize;
+    /**
+     * 每页记录数
+     */
+    private int pageSize = 5;
 
     private String orderBy;
 
