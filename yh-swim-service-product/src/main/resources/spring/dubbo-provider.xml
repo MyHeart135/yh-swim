@@ -35,5 +35,6 @@
     <!-- 暴露实现类 -->
     <dubbo:service interface="com.yh.swim.service.SalaryService" ref="salaryService" />
     <dubbo:service interface="com.yh.swim.service.product.BrandService" ref="brandService" />
+    <dubbo:service interface="com.yh.swim.service.product.UploadService" ref="uploadService" />
 
 </beans>

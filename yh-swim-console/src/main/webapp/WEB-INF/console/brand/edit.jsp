@@ -31,6 +31,7 @@
 </div>
 <div class="body-box" style="float:right">
     <form id="jvForm" action="edit" method="post">
+        <input type="hidden" name="id" value="${brand.id}"/>
         <table cellspacing="1" cellpadding="2" width="100%" border="0" class="pn-ftable">
             <tbody>
             <tr>

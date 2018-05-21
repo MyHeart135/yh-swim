@@ -35,4 +35,20 @@ public interface BrandDao {
      * @return
      */
     Brand get(Long id);
+
+    /**
+     * 修改brand
+     *
+     * @param brand pojo对象，根据对象的id值修改
+     * @return 受影响的行数
+     */
+    Integer update(Brand brand);
+
+    /**
+     * 批量删除
+     *
+     * @param ids id数组
+     * @return 受影响的行数
+     */
+    Integer deleteBatch(Long[] ids);
 }

@@ -1,6 +1,7 @@
 package com.yh.swim.console.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.google.common.base.Preconditions;
 import com.yh.swim.domain.condition.product.BrandCondition;
 import com.yh.swim.domain.pojo.product.Brand;
 import com.yh.swim.service.product.BrandService;
@@ -59,6 +60,30 @@ public class BrandController {
         List<String> pageView = pageView("/brand/list", params.toString(), brandPageInfo);
         model.addAttribute("pageView", pageView);
         return "brand/list";
+    }
+
+    /**
+     * 修改品牌
+     *
+     * @return 重定向到品牌列表页面
+     */
+    @RequestMapping("/brand/edit")
+    public String edit(Brand brand) {
+        Integer update = brandService.update(brand);
+        Preconditions.checkArgument(update == 1, "update error!");
+        return "redirect:/brand/list";
+    }
+
+    /**
+     * 批量删除品牌
+     *
+     * @return 重定向到品牌列表页面
+     */
+    @RequestMapping("/brand/deleteBatch")
+    public String deleteBatch(Long[] ids) {
+        Integer integer = brandService.deleteBatch(ids);
+        Preconditions.checkArgument(integer >= 1, "deleteBatch error!");
+        return "forward:/brand/list";
     }
 
     /**

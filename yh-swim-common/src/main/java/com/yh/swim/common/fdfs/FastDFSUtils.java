@@ -30,11 +30,8 @@ public class FastDFSUtils {
             meta_list[0] = new NameValuePair("fileName", name);
             meta_list[1] = new NameValuePair("fileExt", ext);
             meta_list[2] = new NameValuePair("fileSize", String.valueOf(size));
-
-
             path = storageClient1.upload_file1(pic, ext, meta_list);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return path;

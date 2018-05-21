@@ -6,6 +6,8 @@ import com.yh.swim.domain.pojo.product.Brand;
 
 /**
  * 品牌管理服务
+ *
+ * @author yanhuan
  */
 public interface BrandService {
 
@@ -24,5 +26,21 @@ public interface BrandService {
      * @return
      */
     Brand get(Long id);
+
+    /**
+     * 根据主键修改brand方法
+     *
+     * @param brand 品牌对象
+     * @return 受影响行数
+     */
+    Integer update(Brand brand);
+
+    /**
+     * 批量删除方法
+     *
+     * @param ids 主键数组
+     * @return 受影响的行数
+     */
+    Integer deleteBatch(Long[] ids);
 
 }

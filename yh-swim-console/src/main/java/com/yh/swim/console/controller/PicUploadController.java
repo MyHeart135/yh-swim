@@ -12,6 +12,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 图片上传控制器
+ *
+ * @author 严欢
+ */
 @Controller
 public class PicUploadController {
 
@@ -23,16 +28,11 @@ public class PicUploadController {
      */
     @RequestMapping(value = "/upload/uploadPic")
     public void uploadPic(@RequestParam(required = false) MultipartFile pic, HttpServletResponse response) throws IOException {
-
         String path = uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
-
         String url = Constants.IMG_URL + path;
-
         JSONObject jo = new JSONObject();
         jo.put("url", url);
-
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(jo.toString());
-
     }
 }

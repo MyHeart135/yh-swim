@@ -40,6 +40,10 @@
     <dubbo:reference interface="com.yh.swim.service.product.BrandService" id="brandService"
                      url="dubbo://127.0.0.1:20880"/>
 
+    <!-- 调用接口 -->
+    <dubbo:reference interface="com.yh.swim.service.product.UploadService" id="uploadService"
+                     url="dubbo://127.0.0.1:20880"/>
+
     <!-- 全局设置连接超时时间 -->
     <dubbo:consumer timeout="30000" check="false"/>
 

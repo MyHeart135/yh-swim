@@ -2,10 +2,14 @@ package com.yh.swim.service.product.impl;
 
 import com.yh.swim.common.fdfs.FastDFSUtils;
 import com.yh.swim.service.product.UploadService;
+import org.springframework.stereotype.Service;
 
 /**
  * 上传图片服务实现
+ *
+ * @author yanhuan1
  */
+@Service("uploadService")
 public class UploadServiceImpl implements UploadService {
 
     /**

@@ -58,4 +58,45 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
+    <!-- 修改方法 -->
+    <update id="update" parameterType="Brand">
+        update bbs_brand
+        <set>
+            <trim>
+                <if test="name != null and name != ''">
+                    name = #{name,jdbcType=VARCHAR},
+                </if>
+                <if test="description != null and description != ''">
+                    description = #{description,jdbcType=VARCHAR},
+                </if>
+                <if test="imgUrl != null and imgUrl != ''">
+                    img_url = #{imgUrl,jdbcType=VARCHAR},
+                </if>
+                <if test="webSite != null and webSite != ''">
+                    web_site = #{webSite,jdbcType=VARCHAR},
+                </if>
+                <if test="sort != null">
+                    sort = #{sort,jdbcType=INTEGER},
+                </if>
+                <if test="isDisplay != null">
+                    is_display = #{isDisplay,jdbcType=INTEGER},
+                </if>
+            </trim>
+        </set>
+        <where>
+            id = #{id,jdbcType=BIGINT}
+        </where>
+    </update>
+
+    <!-- 删除方法 -->
+    <delete id="deleteBatch" parameterType="Long">
+        delete from bbs_brand
+        <where>
+            id IN
+            <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+                #{item,jdbcType=BIGINT}
+            </foreach>
+        </where>
+    </delete>
+
 </mapper>
